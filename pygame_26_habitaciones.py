@@ -1,24 +1,26 @@
-
 import pygame
 import copy
 # import cv2
 import tkinter as tk
-from tkinter import ttk
+from tkinter import *
+import speech_recognition as sr
+# import pyttsx3
 # Inicializar
 pygame.init()
-
+pygame.display.set_caption("RV")
+myfont = pygame.font.SysFont("monospace", 15)
+root = Tk()
 # Medidas
 ANCHO = 1280
 ALTO = 720
 
-# Colores
+"""# Colores
 BLANCO = (255, 255, 255)
 NEGRO = (0, 0, 0)
 VERDE = (0, 255, 0)
 MARRON = (77, 38, 0)
 AZUL = (0, 0, 255)
-GRIS = (184, 184, 184)
-
+GRIS = (184, 184, 184)"""
 
 # Mapa
 
@@ -50,7 +52,7 @@ mapa3 = [
     "                ",
     "                ",
     "                ",
-    "P         F      ",
+    "P              F",
     "                ",
     " H              ",
     "                ",
@@ -62,7 +64,7 @@ mapa4 = [
     "                ",
     "                ",
     "                ",
-    "P           F    ",
+    "P            F   ",
     "                ",
     " H           H  ",
     "                ",
@@ -81,18 +83,18 @@ def construir_mapa(superficie, mapa):
     y = 0
     for linea in mapa:
         for baldosa in linea:
-            if baldosa == "M":
+            if baldosa == "P":
+                puertas.append([baldosa_puerta, pygame.Rect(x, y, 80, 80)])
+            elif baldosa == "H":
+                cuarto.append([baldosa_cuarto, pygame.Rect(x, y, 80, 80)])
+            elif baldosa == "F":
+                frutas.append([baldosa_manzana, pygame.Rect(x, y, 80, 80)])
+            """if baldosa == "M":
                 limites.append([baldosa_muro, pygame.Rect(x, y, 80, 80)])
             elif baldosa == "S":
                 limites.append([baldosa_agua, pygame.Rect(x, y, 80, 80)])
             elif baldosa == "A":
-                limites.append([baldosa_arbol, pygame.Rect(x, y, 80, 80)])
-            elif baldosa == "F":
-                frutas.append([baldosa_manzana, pygame.Rect(x, y, 80, 80)])
-            elif baldosa == "P":
-                puertas.append([baldosa_puerta, pygame.Rect(x, y, 80, 80)])
-            elif baldosa == "H":
-                cuarto.append([baldosa_cuarto, pygame.Rect(x, y, 80, 80)])
+                limites.append([baldosa_arbol, pygame.Rect(x, y, 80, 80)])"""
             x += 80
         x = 0
         y += 80
@@ -103,20 +105,20 @@ def construir_mapa(superficie, mapa):
 
 ventana = pygame.display.set_mode((ANCHO, ALTO))
 reloj = pygame.time.Clock()
-
-imagen_fondo = pygame.image.load("./pygame_26/fondo_mapa.png").convert()
+imagen_fondo = pygame.image.load(
+    "./pygame_26/fondo.png").convert()
 baldosa_cuarto = pygame.image.load(
     "./pygame_26/images.jpg").convert_alpha()
-baldosa_muro = pygame.image.load(
-    "./pygame_26/baldosa_muro.png").convert()
-baldosa_agua = pygame.image.load(
-    "./pygame_26/baldosa_agua.png").convert()
-baldosa_arbol = pygame.image.load(
-    "./pygame_26/baldosa_arbol.png").convert_alpha()
 baldosa_puerta = pygame.image.load(
     "./pygame_26/baldosa_puerta.png").convert_alpha()
 baldosa_manzana = pygame.image.load(
     "./pygame_26/baldosa_manzana.png").convert_alpha()
+"""baldosa_muro = pygame.image.load(
+    "./pygame_26/baldosa_muro.png").convert()
+baldosa_agua = pygame.image.load(
+    "./pygame_26/baldosa_agua.png").convert()
+baldosa_arbol = pygame.image.load(
+    "./pygame_26/baldosa_arbol.png").convert_alpha()"""
 
 
 jugador0_par = pygame.image.load(
@@ -156,6 +158,7 @@ jugador4_baj = pygame.image.load(
 
 jugador_imagen = jugador0_par
 
+
 # Datos
 
 habitacion1 = construir_mapa(ventana, mapa1)
@@ -173,14 +176,33 @@ print(jugador_rectangulo)
 jugador_vel_x = 0
 jugador_vel_y = 0
 frames_jugador = 0
-
 # Bucle principal
-
 jugando = True
+"""r = sr.Recognizer()
+listener = sr.Recognizer()
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)"""
 while jugando:
-
     reloj.tick(60)
-
+    piso = pygame.font.Font(None, 30)
+    texto1 = piso.render("324", 0, (0, 0, 0), (255, 255, 255))
+    texto2 = piso.render("456", 0, (0, 0, 0), (255, 255, 255))
+    texto3 = piso.render("678", 0, (0, 0, 0), (255, 255, 255))
+    texto4 = piso.render("899", 0, (0, 0, 0), (255, 255, 255))
+    texto5 = piso.render("1045", 0, (0, 0, 0), (255, 255, 255))
+    texto6 = piso.render("2670", 0, (0, 0, 0), (255, 255, 255))
+    texto7 = piso.render("3456", 0, (0, 0, 0), (255, 255, 255))
+    texto8 = piso.render("4983", 0, (0, 0, 0), (255, 255, 255))
+    texto9 = piso.render("5266", 0, (0, 0, 0), (255, 255, 255))
+    texto10 = piso.render("6982", 0, (0, 0, 0), (255, 255, 255))
+    texto11 = piso.render("8450", 0, (0, 0, 0), (255, 255, 255))
+    texto12 = piso.render("9123", 0, (0, 0, 0), (255, 255, 255))
+    texto13 = piso.render("10765", 0, (0, 0, 0), (255, 255, 255))
+    texto14 = piso.render("12890", 0, (0, 0, 0), (255, 255, 255))
+    texto15 = piso.render("13876", 0, (0, 0, 0), (255, 255, 255))
+    texto16 = piso.render("1489", 0, (0, 0, 0), (255, 255, 255))
+    texto17 = piso.render("15000", 0, (0, 0, 0), (255, 255, 255))
     # Eventos
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -252,9 +274,7 @@ while jugando:
                 jugador_rectangulo.y = 300
 
     # Dibujos
-
-    ventana.blit(imagen_fondo, (0, 0))
-
+    ventana.blit(imagen_fondo, [0, 0])
     for elemento in habitacion:
         for baldosa in elemento:
             ventana.blit(baldosa[0], baldosa[1])
@@ -322,7 +342,42 @@ while jugando:
     else:
         jugador_imagen = jugador0_par
         ventana.blit(jugador_imagen, jugador_rectangulo)
-
+    # Etiquetas
+    if habitacion == habitacion1:
+        ventana.blit(texto1, (200, 0))
+        ventana.blit(texto2, (1150, 0))
+        ventana.blit(texto3, (200, 480))
+        ventana.blit(texto4, (1150, 480))
+    elif habitacion == habitacion2:
+        ventana.blit(texto5, (200, 0))
+        ventana.blit(texto6, (1150, 0))
+        ventana.blit(texto7, (675, 0))
+        ventana.blit(texto8, (200, 480))
+        ventana.blit(texto9, (1150, 480))
+    elif habitacion == habitacion3:
+        ventana.blit(texto10, (200, 0))
+        ventana.blit(texto11, (1150, 0))
+        ventana.blit(texto12, (200, 480))
+    elif habitacion == habitacion4:
+        ventana.blit(texto13, (200, 0))
+        ventana.blit(texto14, (1150, 0))
+        ventana.blit(texto15, (675, 0))
+        ventana.blit(texto16, (200, 480))
+        ventana.blit(texto17, (1150, 480))
+        # Reconocimiento de voz (se traba xd)
+    r = sr.Recognizer()
+    listener = sr.Recognizer()
+    with sr.Microphone() as source:
+        audio = r.listen(source)
+        try:
+            text = r.recognize_google(audio, language="es-US")
+            print('Has dicho: {}'.format(text))
+            print(text)
+            if "324" in text:
+                jugador_rectangulo.x = 200
+                jugador_rectangulo.y = 10
+        except:
+            print("No entendi")
     # Actualizar
     pygame.display.update()
 
