@@ -24,47 +24,47 @@ GRIS = (184, 184, 184)"""
 
 
 mapa1 = [
-    " H           H  ",
+    "H            H  ",
     "                ",
     "                ",
     "                ",
     "P               ",
     "                ",
-    " H           H  ",
+    "H            H  ",
     "                ",
     "                "
 ]
 mapa2 = [
-    " H     H     H  ",
+    "H     H      H  ",
     "                ",
     "                ",
     "                ",
     "P               ",
     "                ",
-    " H           H  ",
+    "H            H  ",
     "                ",
     "                "
 ]
 mapa3 = [
-    " H           H  ",
+    "H            HF ",
     "                ",
     "                ",
     "                ",
-    "P              F",
+    "P               ",
     "                ",
-    " H              ",
+    "H               ",
     "                ",
     "                "
 ]
 
 mapa4 = [
-    " H     H     H  ",
+    "H     H      HF ",
     "                ",
     "                ",
     "                ",
-    "P            F   ",
+    "P               ",
     "                ",
-    " H           H  ",
+    "H            H  ",
     "                ",
     "                "
 ]
@@ -183,6 +183,7 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)"""
 while jugando:
     reloj.tick(60)
+    winmensaje = pygame.font.SysFont("Comic Sans", 90)
     piso = pygame.font.Font(None, 30)
     texto1 = piso.render("324", 0, (0, 0, 0), (255, 255, 255))
     texto2 = piso.render("456", 0, (0, 0, 0), (255, 255, 255))
@@ -201,6 +202,8 @@ while jugando:
     texto15 = piso.render("13876", 0, (0, 0, 0), (255, 255, 255))
     texto16 = piso.render("1489", 0, (0, 0, 0), (255, 255, 255))
     texto17 = piso.render("15000", 0, (0, 0, 0), (255, 255, 255))
+    textowin = winmensaje.render("AULA LIMPIA", 0, (255, 255, 255), (0, 0, 0))
+
     # Eventos
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -342,26 +345,69 @@ while jugando:
         ventana.blit(jugador_imagen, jugador_rectangulo)
     # Etiquetas
     if habitacion == habitacion1:
-        ventana.blit(texto1, (200, 0))
+        ventana.blit(texto1, (120, 0))
         ventana.blit(texto2, (1150, 0))
-        ventana.blit(texto3, (200, 480))
+        ventana.blit(texto3, (120, 480))
         ventana.blit(texto4, (1150, 480))
     elif habitacion == habitacion2:
-        ventana.blit(texto5, (200, 0))
+        ventana.blit(texto5, (120, 0))
         ventana.blit(texto6, (1150, 0))
-        ventana.blit(texto7, (675, 0))
-        ventana.blit(texto8, (200, 480))
+        ventana.blit(texto7, (590, 0))
+        ventana.blit(texto8, (120, 480))
         ventana.blit(texto9, (1150, 480))
     elif habitacion == habitacion3:
-        ventana.blit(texto10, (200, 0))
+        ventana.blit(texto10, (120, 0))
         ventana.blit(texto11, (1150, 0))
-        ventana.blit(texto12, (200, 480))
+        ventana.blit(texto12, (120, 480))
     elif habitacion == habitacion4:
-        ventana.blit(texto13, (200, 0))
+        ventana.blit(texto13, (120, 0))
         ventana.blit(texto14, (1150, 0))
-        ventana.blit(texto15, (675, 0))
-        ventana.blit(texto16, (200, 480))
+        ventana.blit(texto15, (590, 0))
+        ventana.blit(texto16, (120, 480))
         ventana.blit(texto17, (1150, 480))
+    # Posiciones de Aulas Limpias
+    # Piso1
+    if habitacion == habitacion1:
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+    # Piso2
+    if habitacion == habitacion2:
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 550 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+    # Piso3
+    if habitacion == habitacion3:
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+    # Piso4
+    if habitacion == habitacion4:
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 550 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
         # Reconocimiento de voz (se traba xd)
     """r = sr.Recognizer()
     listener = sr.Recognizer()
@@ -376,6 +422,20 @@ while jugando:
                 jugador_rectangulo.y = 10
         except:
             print("No entendi")"""
+
+    # Prueba de Posicion
+    """if habitacion == habitacion1 and pulsado[pygame.K_SPACE]:
+        jugador_rectangulo.x = 100
+        jugador_rectangulo.y = 0
+    if habitacion == habitacion2 and pulsado[pygame.K_SPACE]:
+        jugador_rectangulo.x = 100
+        jugador_rectangulo.y = 0
+    if habitacion == habitacion3 and pulsado[pygame.K_SPACE]:
+        jugador_rectangulo.x = 100
+        jugador_rectangulo.y = 0
+    if habitacion == habitacion4 and pulsado[pygame.K_SPACE]:
+        jugador_rectangulo.x = 100
+        jugador_rectangulo.y = 0"""
     # Actualizar
     pygame.display.update()
 
