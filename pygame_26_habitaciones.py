@@ -100,6 +100,13 @@ def construir_mapa(superficie, mapa):
         y += 80
     return limites, frutas, puertas, cuarto
 
+def dibujar_botones(lista_botones):
+        for boton in lista_botones:
+            if boton['on_click']:
+                ventana.blit(boton['imagen_pressed'], boton['rect'])
+            else:
+                ventana.blit(boton['imagen'], boton['rect'])
+    # Reconocimiento de voz (se traba xd)
 
 # Ventana
 
@@ -364,20 +371,50 @@ while jugando:
         ventana.blit(texto15, (675, 0))
         ventana.blit(texto16, (200, 480))
         ventana.blit(texto17, (1150, 480))
-        # Reconocimiento de voz (se traba xd)
-    r = sr.Recognizer()
-    listener = sr.Recognizer()
-    with sr.Microphone() as source:
-        audio = r.listen(source)
-        try:
-            text = r.recognize_google(audio, language="es-US")
-            print('Has dicho: {}'.format(text))
-            print(text)
-            if "324" in text:
-                jugador_rectangulo.x = 200
-                jugador_rectangulo.y = 10
-        except:
-            print("No entendi")
+
+    #colocar Botón
+    width = ventana.get_width()
+    height = ventana.get_height()
+    mouse = pygame.mouse.get_pos()
+    for ev in pygame.event.get():
+        if ev.type == pygame.MOUSEBUTTONDOWN:
+              
+            #if the mouse is clicked on the
+            # button the game is terminated
+            if width/2 <= mouse[0] <= width/2+180 and height/2 <= mouse[1] <= height/2+40:
+                print("Se presiona el botón")
+                pygame.quit()
+                
+    color = (255,255,255)
+    color_dark = (100,100,100)
+    color_light = (170,170,170)
+    
+    smallfont = pygame.font.SysFont('Corbel',25)
+    text = smallfont.render('Iniciar Grabacion' , True , color)
+    
+    if width/2 <= mouse[0] <= width/2+140 and height/2 <= mouse[1] <= height/2+40:
+        pygame.draw.rect(ventana,color_light,[width/2,height/2,180,40])
+          
+    else:
+        pygame.draw.rect(ventana,color_dark,[width/2,height/2,180,40])
+    # pygame.draw.rect(ventana,color_dark,[width/2,height/2,180,40])
+    ventana.blit(text , (width/2+5,height/2+5))
+    # r = sr.Recognizer()
+    # listener = sr.Recognizer()
+    # with sr.Microphone() as source:
+    #     print("Empieza  a reconocer ......................................")
+    #     seconds = 3
+    #     audio = r.listen(source,seconds)
+    #     print(f"Termina en {seconds} segundos ......................................")
+    #     try:
+    #         text = r.recognize_google(audio, language="es-US")
+    #         print('Has dicho: {}'.format(text))
+    #         print(text)
+    #         if "324" in text:
+    #             jugador_rectangulo.x = 200
+    #             jugador_rectangulo.y = 10
+    #     except:
+    #         print("No entendi")
     # Actualizar
     pygame.display.update()
 
