@@ -104,55 +104,55 @@ def construir_mapa(superficie, mapa):
 ventana = pygame.display.set_mode((ANCHO, ALTO))
 reloj = pygame.time.Clock()
 imagen_fondo = pygame.image.load(
-    "E:/Osvi2/pygame_26/fondo.png").convert()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/fondo.png").convert()
 baldosa_cuarto = pygame.image.load(
-    "E:/Osvi2/pygame_26/images.jpg").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/images3.jpg").convert_alpha()
 baldosa_puerta = pygame.image.load(
-    "E:/Osvi2/pygame_26/baldosa_puerta.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_puerta.png").convert_alpha()
 baldosa_manzana = pygame.image.load(
-    "E:/Osvi2/pygame_26/baldosa_manzana.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_manzana.png").convert_alpha()
 """baldosa_muro = pygame.image.load(
-    "E:/Osvi2/pygame_26/baldosa_muro.png").convert()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_muro.png").convert()
 baldosa_agua = pygame.image.load(
-    "E:/Osvi2/pygame_26/baldosa_agua.png").convert()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_agua.png").convert()
 baldosa_arbol = pygame.image.load(
-    "E:/Osvi2/pygame_26/baldosa_arbol.png").convert_alpha()"""
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_arbol.png").convert_alpha()"""
 
 
 jugador0_par = pygame.image.load(
-    "E:\Osvi2\pygame_26\par_0.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/par_0.png").convert_alpha()
 jugador1_der = pygame.image.load(
-    "E:\Osvi2\pygame_26\der_1.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/der_1.png").convert_alpha()
 jugador2_der = pygame.image.load(
-    "E:\Osvi2\pygame_26\der_2.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/der_2.png").convert_alpha()
 jugador3_der = pygame.image.load(
-    "E:\Osvi2\pygame_26\der_3.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/der_3.png").convert_alpha()
 jugador4_der = pygame.image.load(
-    "E:/Osvi2/pygame_26\der_4.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\der_4.png").convert_alpha()
 jugador1_izq = pygame.image.load(
-    "E:/Osvi2/pygame_26\izq_1.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\izq_1.png").convert_alpha()
 jugador2_izq = pygame.image.load(
-    "E:/Osvi2/pygame_26\izq_2.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\izq_2.png").convert_alpha()
 jugador3_izq = pygame.image.load(
-    "E:/Osvi2/pygame_26\izq_3.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\izq_3.png").convert_alpha()
 jugador4_izq = pygame.image.load(
-    "E:/Osvi2/pygame_26\izq_4.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\izq_4.png").convert_alpha()
 jugador1_arr = pygame.image.load(
-    "E:/Osvi2/pygame_26/arr_1.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/arr_1.png").convert_alpha()
 jugador2_arr = pygame.image.load(
-    "E:/Osvi2/pygame_26/arr_2.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/arr_2.png").convert_alpha()
 jugador3_arr = pygame.image.load(
-    "E:/Osvi2/pygame_26/arr_3.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/arr_3.png").convert_alpha()
 jugador4_arr = pygame.image.load(
-    "E:/Osvi2/pygame_26/arr_4.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/arr_4.png").convert_alpha()
 jugador1_baj = pygame.image.load(
-    "E:/Osvi2/pygame_26/baj_1.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baj_1.png").convert_alpha()
 jugador2_baj = pygame.image.load(
-    "E:/Osvi2/pygame_26/baj_2.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baj_2.png").convert_alpha()
 jugador3_baj = pygame.image.load(
-    "E:/Osvi2/pygame_26/baj_3.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baj_3.png").convert_alpha()
 jugador4_baj = pygame.image.load(
-    "E:/Osvi2/pygame_26/baj_4.png").convert_alpha()
+    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baj_4.png").convert_alpha()
 
 jugador_imagen = jugador0_par
 
