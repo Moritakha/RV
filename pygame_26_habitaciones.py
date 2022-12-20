@@ -12,60 +12,52 @@ root = Tk()
 ANCHO = 1280
 ALTO = 720
 
-"""# Colores
-BLANCO = (255, 255, 255)
-NEGRO = (0, 0, 0)
-VERDE = (0, 255, 0)
-MARRON = (77, 38, 0)
-AZUL = (0, 0, 255)
-GRIS = (184, 184, 184)"""
-
 # Mapa
 
 
 mapa1 = [
-    " H           H  ",
+    "H            H  ",
     "                ",
     "                ",
     "                ",
     "P               ",
     "                ",
-    " H           H  ",
+    "H            H  ",
     "                ",
     "                "
 ]
 mapa2 = [
-    " H     H     H  ",
+    "H     H      H  ",
     "                ",
     "                ",
     "                ",
     "P               ",
     "                ",
-    " H           H  ",
+    "H            H  ",
     "                ",
     "                "
 ]
 mapa3 = [
-    " H           H  ",
+    "H            HF ",
     "                ",
     "                ",
     "                ",
-    "P              F",
+    "P               ",
     "                ",
-    " H              ",
+    "H               ",
     "                ",
     "                "
 ]
 
 mapa4 = [
-    " H     H     H  ",
+    "H     H      H  ",
     "                ",
     "                ",
     "                ",
-    "P            F   ",
+    "P               ",
     "                ",
-    " H           H  ",
-    "                ",
+    "H            H  ",
+    "              F ",
     "                "
 ]
 
@@ -87,12 +79,6 @@ def construir_mapa(superficie, mapa):
                 cuarto.append([baldosa_cuarto, pygame.Rect(x, y, 80, 80)])
             elif baldosa == "F":
                 frutas.append([baldosa_manzana, pygame.Rect(x, y, 80, 80)])
-            """if baldosa == "M":
-                limites.append([baldosa_muro, pygame.Rect(x, y, 80, 80)])
-            elif baldosa == "S":
-                limites.append([baldosa_agua, pygame.Rect(x, y, 80, 80)])
-            elif baldosa == "A":
-                limites.append([baldosa_arbol, pygame.Rect(x, y, 80, 80)])"""
             x += 80
         x = 0
         y += 80
@@ -104,67 +90,61 @@ def construir_mapa(superficie, mapa):
 ventana = pygame.display.set_mode((ANCHO, ALTO))
 reloj = pygame.time.Clock()
 imagen_fondo = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/fondo.png").convert()
+    "E:/Osvi2/pygame_26/fondo.png").convert()
 baldosa_cuarto = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/images3.jpg").convert_alpha()
+    "E:/Osvi2/pygame_26/images.jpg").convert_alpha()
 baldosa_puerta = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_puerta.png").convert_alpha()
+    "E:/Osvi2/pygame_26/baldosa_puerta.png").convert_alpha()
 baldosa_manzana = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_manzana.png").convert_alpha()
-"""baldosa_muro = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_muro.png").convert()
-baldosa_agua = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_agua.png").convert()
-baldosa_arbol = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baldosa_arbol.png").convert_alpha()"""
+    "E:/Osvi2/pygame_26/baldosa_manzana.png").convert_alpha()
 
 
 jugador0_par = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/par_0.png").convert_alpha()
+    "E:\Osvi2\pygame_26\par_0.png").convert_alpha()
 jugador1_der = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/der_1.png").convert_alpha()
+    "E:\Osvi2\pygame_26\der_1.png").convert_alpha()
 jugador2_der = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/der_2.png").convert_alpha()
+    "E:\Osvi2\pygame_26\der_2.png").convert_alpha()
 jugador3_der = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/der_3.png").convert_alpha()
+    "E:\Osvi2\pygame_26\der_3.png").convert_alpha()
 jugador4_der = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\der_4.png").convert_alpha()
+    "E:/Osvi2/pygame_26\der_4.png").convert_alpha()
 jugador1_izq = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\izq_1.png").convert_alpha()
+    "E:/Osvi2/pygame_26\izq_1.png").convert_alpha()
 jugador2_izq = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\izq_2.png").convert_alpha()
+    "E:/Osvi2/pygame_26\izq_2.png").convert_alpha()
 jugador3_izq = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\izq_3.png").convert_alpha()
+    "E:/Osvi2/pygame_26\izq_3.png").convert_alpha()
 jugador4_izq = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26\izq_4.png").convert_alpha()
+    "E:/Osvi2/pygame_26\izq_4.png").convert_alpha()
 jugador1_arr = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/arr_1.png").convert_alpha()
+    "E:/Osvi2/pygame_26/arr_1.png").convert_alpha()
 jugador2_arr = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/arr_2.png").convert_alpha()
+    "E:/Osvi2/pygame_26/arr_2.png").convert_alpha()
 jugador3_arr = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/arr_3.png").convert_alpha()
+    "E:/Osvi2/pygame_26/arr_3.png").convert_alpha()
 jugador4_arr = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/arr_4.png").convert_alpha()
+    "E:/Osvi2/pygame_26/arr_4.png").convert_alpha()
 jugador1_baj = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baj_1.png").convert_alpha()
+    "E:/Osvi2/pygame_26/baj_1.png").convert_alpha()
 jugador2_baj = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baj_2.png").convert_alpha()
+    "E:/Osvi2/pygame_26/baj_2.png").convert_alpha()
 jugador3_baj = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baj_3.png").convert_alpha()
+    "E:/Osvi2/pygame_26/baj_3.png").convert_alpha()
 jugador4_baj = pygame.image.load(
-    "D:/Laptop/materias/Reconocimiento de Voz/proyecto 2/proyecto_SP/RV/pygame_26/baj_4.png").convert_alpha()
+    "E:/Osvi2/pygame_26/baj_4.png").convert_alpha()
 
 jugador_imagen = jugador0_par
 
 
 # Datos
 
-habitacion1 = construir_mapa(ventana, mapa1)
-habitacion2 = construir_mapa(ventana, mapa2)
-habitacion3 = construir_mapa(ventana, mapa3)
-habitacion4 = construir_mapa(ventana, mapa4)
+piso1 = construir_mapa(ventana, mapa1)
+piso2 = construir_mapa(ventana, mapa2)
+piso3 = construir_mapa(ventana, mapa3)
+piso4 = construir_mapa(ventana, mapa4)
 
-habitacion = habitacion1
+piso = piso1
 
 jugador_rectangulo = jugador_imagen.get_rect()
 print(jugador_rectangulo)
@@ -176,31 +156,69 @@ jugador_vel_y = 0
 frames_jugador = 0
 # Bucle principal
 jugando = True
-"""r = sr.Recognizer()
-listener = sr.Recognizer()
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)"""
+
+
+def rv():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        audio = r.listen(source)
+        try:
+            text = r.recognize_google(audio, language="es-US")
+            print('Has dicho: {}'.format(text))
+            print(text)
+            if "324" in text or "1045" in text or "6982" in text or "10765" in text:
+                jugador_rectangulo.x = 100
+                jugador_rectangulo.y = 0
+            elif "3456" in text or "13876" in text:
+                jugador_rectangulo.x = 550
+                jugador_rectangulo.y = 0
+            elif "456" in text or "2670" in text or "8450" in text or "12890" in text:
+                jugador_rectangulo.x = 1150
+                jugador_rectangulo.y = 0
+            elif "678" in text or "4983" in text or "9123" in text or "1489" in text:
+                jugador_rectangulo.x = 100
+                jugador_rectangulo.y = 480
+            elif "899" in text or "5266" in text or "15000" in text:
+                jugador_rectangulo.x = 1150
+                jugador_rectangulo.y = 480
+            elif "puerta" in text:
+                jugador_rectangulo.x = 100
+                jugador_rectangulo.y = 300
+            elif "piso" in text:
+                jugador_rectangulo.x = 20
+                jugador_rectangulo.y = 350
+        except:
+            engine = pyttsx3.init()
+            voices = engine.getProperty('voices')
+            engine.setProperty('voice', voices[0].id)
+            engine.say("No entendi")
+            engine.runAndWait()
+            #print("No entendi")
+
+
 while jugando:
     reloj.tick(60)
-    piso = pygame.font.Font(None, 30)
-    texto1 = piso.render("324", 0, (0, 0, 0), (255, 255, 255))
-    texto2 = piso.render("456", 0, (0, 0, 0), (255, 255, 255))
-    texto3 = piso.render("678", 0, (0, 0, 0), (255, 255, 255))
-    texto4 = piso.render("899", 0, (0, 0, 0), (255, 255, 255))
-    texto5 = piso.render("1045", 0, (0, 0, 0), (255, 255, 255))
-    texto6 = piso.render("2670", 0, (0, 0, 0), (255, 255, 255))
-    texto7 = piso.render("3456", 0, (0, 0, 0), (255, 255, 255))
-    texto8 = piso.render("4983", 0, (0, 0, 0), (255, 255, 255))
-    texto9 = piso.render("5266", 0, (0, 0, 0), (255, 255, 255))
-    texto10 = piso.render("6982", 0, (0, 0, 0), (255, 255, 255))
-    texto11 = piso.render("8450", 0, (0, 0, 0), (255, 255, 255))
-    texto12 = piso.render("9123", 0, (0, 0, 0), (255, 255, 255))
-    texto13 = piso.render("10765", 0, (0, 0, 0), (255, 255, 255))
-    texto14 = piso.render("12890", 0, (0, 0, 0), (255, 255, 255))
-    texto15 = piso.render("13876", 0, (0, 0, 0), (255, 255, 255))
-    texto16 = piso.render("1489", 0, (0, 0, 0), (255, 255, 255))
-    texto17 = piso.render("15000", 0, (0, 0, 0), (255, 255, 255))
+    winmensaje = pygame.font.SysFont("Comic Sans", 90)
+    aula = pygame.font.Font(None, 30)
+    texto1 = aula.render("324", 0, (0, 0, 0), (255, 255, 255))
+    texto2 = aula.render("456", 0, (0, 0, 0), (255, 255, 255))
+    texto3 = aula.render("678", 0, (0, 0, 0), (255, 255, 255))
+    texto4 = aula.render("899", 0, (0, 0, 0), (255, 255, 255))
+    texto5 = aula.render("1045", 0, (0, 0, 0), (255, 255, 255))
+    texto6 = aula.render("2670", 0, (0, 0, 0), (255, 255, 255))
+    texto7 = aula.render("3456", 0, (0, 0, 0), (255, 255, 255))
+    texto8 = aula.render("4983", 0, (0, 0, 0), (255, 255, 255))
+    texto9 = aula.render("5266", 0, (0, 0, 0), (255, 255, 255))
+    texto10 = aula.render("6982", 0, (0, 0, 0), (255, 255, 255))
+    texto11 = aula.render("8450", 0, (0, 0, 0), (255, 255, 255))
+    texto12 = aula.render("9123", 0, (0, 0, 0), (255, 255, 255))
+    texto13 = aula.render("10765", 0, (0, 0, 0), (255, 255, 255))
+    texto14 = aula.render("12890", 0, (0, 0, 0), (255, 255, 255))
+    texto15 = aula.render("13876", 0, (0, 0, 0), (255, 255, 255))
+    texto16 = aula.render("1489", 0, (0, 0, 0), (255, 255, 255))
+    texto17 = aula.render("15000", 0, (0, 0, 0), (255, 255, 255))
+    textowin = winmensaje.render("AULA LIMPIA", 0, (255, 255, 255), (0, 0, 0))
+
     # Eventos
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -213,7 +231,6 @@ while jugando:
 
     jugador_vel_x = 0
     jugador_vel_y = 0
-
     pulsado = pygame.key.get_pressed()
 
     if pulsado[pygame.K_LEFT] and not pulsado[pygame.K_RIGHT]:
@@ -243,37 +260,37 @@ while jugando:
     if jugador_rectangulo.y < 0:
         jugador_rectangulo.y = 0
 
-    for limite in habitacion[0]:
+    for limite in piso[0]:
         if jugador_rectangulo.colliderect(limite[1]):
             jugador_rectangulo.x -= jugador_vel_x
             jugador_rectangulo.y -= jugador_vel_y
 
-    for fruta in copy.copy(habitacion[1]):
+    for fruta in copy.copy(piso[1]):
         if jugador_rectangulo.collidepoint(fruta[1].centerx, fruta[1].centery):
-            habitacion[1].remove(fruta)
+            piso[1].remove(fruta)
 
-    for puerta in habitacion[2]:
+    for puerta in piso[2]:
         if jugador_rectangulo.collidepoint(puerta[1].centerx, puerta[1].centery):
-            if habitacion == habitacion1:
-                habitacion = habitacion2
+            if piso == piso1:
+                piso = piso2
                 jugador_rectangulo.x = 100
                 jugador_rectangulo.y = 300
-            elif habitacion == habitacion2:
-                habitacion = habitacion3
+            elif piso == piso2:
+                piso = piso3
                 jugador_rectangulo.x = 100
                 jugador_rectangulo.y = 300
-            elif habitacion == habitacion3:
-                habitacion = habitacion4
+            elif piso == piso3:
+                piso = piso4
                 jugador_rectangulo.x = 100
                 jugador_rectangulo.y = 300
-            elif habitacion == habitacion4:
-                habitacion = habitacion1
+            elif piso == piso4:
+                piso = piso1
                 jugador_rectangulo.x = 100
                 jugador_rectangulo.y = 300
 
     # Dibujos
     ventana.blit(imagen_fondo, [0, 0])
-    for elemento in habitacion:
+    for elemento in piso:
         for baldosa in elemento:
             ventana.blit(baldosa[0], baldosa[1])
 
@@ -341,41 +358,88 @@ while jugando:
         jugador_imagen = jugador0_par
         ventana.blit(jugador_imagen, jugador_rectangulo)
     # Etiquetas
-    if habitacion == habitacion1:
-        ventana.blit(texto1, (200, 0))
+    if piso == piso1:
+        ventana.blit(texto1, (120, 0))
         ventana.blit(texto2, (1150, 0))
-        ventana.blit(texto3, (200, 480))
+        ventana.blit(texto3, (120, 480))
         ventana.blit(texto4, (1150, 480))
-    elif habitacion == habitacion2:
-        ventana.blit(texto5, (200, 0))
+    elif piso == piso2:
+        ventana.blit(texto5, (120, 0))
         ventana.blit(texto6, (1150, 0))
-        ventana.blit(texto7, (675, 0))
-        ventana.blit(texto8, (200, 480))
+        ventana.blit(texto7, (590, 0))
+        ventana.blit(texto8, (120, 480))
         ventana.blit(texto9, (1150, 480))
-    elif habitacion == habitacion3:
-        ventana.blit(texto10, (200, 0))
+    elif piso == piso3:
+        ventana.blit(texto10, (120, 0))
         ventana.blit(texto11, (1150, 0))
-        ventana.blit(texto12, (200, 480))
-    elif habitacion == habitacion4:
-        ventana.blit(texto13, (200, 0))
+        ventana.blit(texto12, (120, 480))
+    elif piso == piso4:
+        ventana.blit(texto13, (120, 0))
         ventana.blit(texto14, (1150, 0))
-        ventana.blit(texto15, (675, 0))
-        ventana.blit(texto16, (200, 480))
+        ventana.blit(texto15, (590, 0))
+        ventana.blit(texto16, (120, 480))
         ventana.blit(texto17, (1150, 480))
-        # Reconocimiento de voz (se traba xd)
-    """r = sr.Recognizer()
-    listener = sr.Recognizer()
-    with sr.Microphone() as source:
-        audio = r.listen(source)
-        try:
-            text = r.recognize_google(audio, language="es-US")
-            print('Has dicho: {}'.format(text))
-            print(text)
-            if "324" in text:
-                jugador_rectangulo.x = 200
-                jugador_rectangulo.y = 10
-        except:
-            print("No entendi")"""
+    # Posiciones de Aulas Limpias
+    # Piso1
+    if piso == piso1:
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+    # Piso2
+    if piso == piso2:
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 550 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+    # Piso3
+    if piso == piso3:
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+    # Piso4
+    if piso == piso4:
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 550 and jugador_rectangulo.y == 0:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+        if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 480:
+            ventana.blit(textowin, (400, 300))
+    # Prueba de Posicion
+    if pulsado[pygame.K_q] and piso == piso1:
+        piso = piso2
+    if pulsado[pygame.K_w] and piso == piso2:
+        piso = piso3
+    if pulsado[pygame.K_e] and piso == piso3:
+        piso = piso4
+    if pulsado[pygame.K_r] and piso == piso4:
+        piso = piso1
+    # Reco de Voz
+    if pulsado[pygame.K_SPACE] and piso == piso1:
+        rv()
+    elif pulsado[pygame.K_SPACE] and piso == piso2:
+        rv()
+    elif pulsado[pygame.K_SPACE] and piso == piso3:
+        rv()
+    elif pulsado[pygame.K_SPACE] and piso == piso4:
+        rv()
     # Actualizar
     pygame.display.update()
 
