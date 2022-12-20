@@ -89,50 +89,50 @@ def construir_mapa(superficie, mapa):
 
 ventana = pygame.display.set_mode((ANCHO, ALTO))
 reloj = pygame.time.Clock()
-imagen_fondo = pygame.image.load(
-    "E:/Osvi2/pygame_26/fondo.png").convert()
+imagen_fondo = pygame.image.load( 
+    "./pygame_26/fondo.png").convert()
 baldosa_cuarto = pygame.image.load(
-    "E:/Osvi2/pygame_26/images.jpg").convert_alpha()
+    "./pygame_26/aula.jpeg").convert_alpha()
 baldosa_puerta = pygame.image.load(
-    "E:/Osvi2/pygame_26/baldosa_puerta.png").convert_alpha()
+    "./pygame_26/baldosa_puerta.png").convert_alpha()
 baldosa_manzana = pygame.image.load(
-    "E:/Osvi2/pygame_26/baldosa_manzana.png").convert_alpha()
+    "./pygame_26/baldosa_manzana.png").convert_alpha()
 
 
 jugador0_par = pygame.image.load(
-    "E:\Osvi2\pygame_26\par_0.png").convert_alpha()
+    ".\pygame_26\par_0.png").convert_alpha()
 jugador1_der = pygame.image.load(
-    "E:\Osvi2\pygame_26\der_1.png").convert_alpha()
+    ".\pygame_26\der_1.png").convert_alpha()
 jugador2_der = pygame.image.load(
-    "E:\Osvi2\pygame_26\der_2.png").convert_alpha()
+    ".\pygame_26\der_2.png").convert_alpha()
 jugador3_der = pygame.image.load(
-    "E:\Osvi2\pygame_26\der_3.png").convert_alpha()
+    ".\pygame_26\der_3.png").convert_alpha()
 jugador4_der = pygame.image.load(
-    "E:/Osvi2/pygame_26\der_4.png").convert_alpha()
+    "./pygame_26\der_4.png").convert_alpha()
 jugador1_izq = pygame.image.load(
-    "E:/Osvi2/pygame_26\izq_1.png").convert_alpha()
+    "./pygame_26\izq_1.png").convert_alpha()
 jugador2_izq = pygame.image.load(
-    "E:/Osvi2/pygame_26\izq_2.png").convert_alpha()
+    "./pygame_26\izq_2.png").convert_alpha()
 jugador3_izq = pygame.image.load(
-    "E:/Osvi2/pygame_26\izq_3.png").convert_alpha()
+    "./pygame_26\izq_3.png").convert_alpha()
 jugador4_izq = pygame.image.load(
-    "E:/Osvi2/pygame_26\izq_4.png").convert_alpha()
+    "./pygame_26\izq_4.png").convert_alpha()
 jugador1_arr = pygame.image.load(
-    "E:/Osvi2/pygame_26/arr_1.png").convert_alpha()
+    "./pygame_26/arr_1.png").convert_alpha()
 jugador2_arr = pygame.image.load(
-    "E:/Osvi2/pygame_26/arr_2.png").convert_alpha()
+    "./pygame_26/arr_2.png").convert_alpha()
 jugador3_arr = pygame.image.load(
-    "E:/Osvi2/pygame_26/arr_3.png").convert_alpha()
+    "./pygame_26/arr_3.png").convert_alpha()
 jugador4_arr = pygame.image.load(
-    "E:/Osvi2/pygame_26/arr_4.png").convert_alpha()
+    "./pygame_26/arr_4.png").convert_alpha()
 jugador1_baj = pygame.image.load(
-    "E:/Osvi2/pygame_26/baj_1.png").convert_alpha()
+    "./pygame_26/baj_1.png").convert_alpha()
 jugador2_baj = pygame.image.load(
-    "E:/Osvi2/pygame_26/baj_2.png").convert_alpha()
+    "./pygame_26/baj_2.png").convert_alpha()
 jugador3_baj = pygame.image.load(
-    "E:/Osvi2/pygame_26/baj_3.png").convert_alpha()
+    "./pygame_26/baj_3.png").convert_alpha()
 jugador4_baj = pygame.image.load(
-    "E:/Osvi2/pygame_26/baj_4.png").convert_alpha()
+    "./pygame_26/baj_4.png").convert_alpha()
 
 jugador_imagen = jugador0_par
 
@@ -199,6 +199,7 @@ def rv():
 while jugando:
     reloj.tick(60)
     winmensaje = pygame.font.SysFont("Comic Sans", 90)
+    winmensajepiso = pygame.font.SysFont("Comic Sans", 40)
     aula = pygame.font.Font(None, 30)
     texto1 = aula.render("324", 0, (0, 0, 0), (255, 255, 255))
     texto2 = aula.render("456", 0, (0, 0, 0), (255, 255, 255))
@@ -218,6 +219,10 @@ while jugando:
     texto16 = aula.render("1489", 0, (0, 0, 0), (255, 255, 255))
     texto17 = aula.render("15000", 0, (0, 0, 0), (255, 255, 255))
     textowin = winmensaje.render("AULA LIMPIA", 0, (255, 255, 255), (0, 0, 0))
+    textopiso1 = winmensajepiso.render("PISO 1", 0, (255, 255, 255), (0, 0, 0))
+    textopiso2 = winmensajepiso.render("PISO 2", 0, (255, 255, 255), (0, 0, 0))
+    textopiso3 = winmensajepiso.render("PISO 3", 0, (255, 255, 255), (0, 0, 0))
+    textopiso4 = winmensajepiso.render("PISO 4", 0, (255, 255, 255), (0, 0, 0))
 
     # Eventos
     for event in pygame.event.get():
@@ -382,6 +387,7 @@ while jugando:
     # Posiciones de Aulas Limpias
     # Piso1
     if piso == piso1:
+        ventana.blit(textopiso1,(600,480))
         if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
             ventana.blit(textowin, (400, 300))
         if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
@@ -392,6 +398,7 @@ while jugando:
             ventana.blit(textowin, (400, 300))
     # Piso2
     if piso == piso2:
+        ventana.blit(textopiso2,(600,480))
         if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
             ventana.blit(textowin, (400, 300))
         if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
@@ -404,6 +411,7 @@ while jugando:
             ventana.blit(textowin, (400, 300))
     # Piso3
     if piso == piso3:
+        ventana.blit(textopiso3,(600,480))
         if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
             ventana.blit(textowin, (400, 300))
         if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
@@ -412,6 +420,7 @@ while jugando:
             ventana.blit(textowin, (400, 300))
     # Piso4
     if piso == piso4:
+        ventana.blit(textopiso4,(600,480))
         if jugador_rectangulo.x == 100 and jugador_rectangulo.y == 0:
             ventana.blit(textowin, (400, 300))
         if jugador_rectangulo.x == 1150 and jugador_rectangulo.y == 0:
